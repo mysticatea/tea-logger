@@ -1,0 +1,45 @@
+{
+  "name": "tea-logger",
+  "version": "0.0.0",
+  "description": "A logger for frontend.",
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "babel src --out-dir lib --source-maps-inline",
+    "test": "karma start karma.conf.js --single-run",
+    "testing": "karma start karma.conf.js --auto-watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mysticatea/tea-logger.git"
+  },
+  "keywords": [
+    "console",
+    "logging",
+    "debug",
+    "trace",
+    "frontend"
+  ],
+  "author": "Toru Nagashima",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mysticatea/tea-logger/issues"
+  },
+  "homepage": "https://github.com/mysticatea/tea-logger",
+  "devDependencies": {
+    "babel": "^4.0.2",
+    "babelify": "^5.0.3",
+    "chai": "^2.0.0",
+    "chai-spies": "^0.5.1",
+    "karma": "^0.12.31",
+    "karma-browserify": "^3.0.2",
+    "karma-chrome-launcher": "^0.1.7",
+    "karma-firefox-launcher": "^0.1.4",
+    "karma-ie-launcher": "^0.1.5",
+    "karma-mocha": "^0.1.10",
+    "mocha": "^2.1.0"
+  },
+  "private": true
+}

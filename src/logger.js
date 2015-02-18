@@ -2,7 +2,7 @@
 "use strict";
 import {DEBUG, INFO, WARN, ERROR, isLevel} from "./levels";
 import {isValidWriter} from "./writer";
-import consoleWriter from "./consoleWriter";
+import consoleWriter from "./console-writer";
 
 const NAME = Symbol("name");
 const LEVEL = Symbol("level");

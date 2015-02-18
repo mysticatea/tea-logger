@@ -1,8 +1,10 @@
 /* @copyright Toru Nagashima, 2015, under MIT License */
 "use strict";
+import {WARN, isLevel, levelOf} from "./levels";
 import TeaLogger from "./logger";
-import {WARN, isLevel} from "./levels";
 
+const HAS_LOCAL_STORAGE = (typeof localStorage !== "undefined");
+const KEY_PATTERN = /^tea-logger-level:/;
 let loggers = Object.create(null);
 
 function key(name) {
@@ -14,7 +16,7 @@ function store() {
   localStorage.setItem(key(this.name), String(this.level));
 }
 
-const createLogger = (typeof localStorage === "undefined" ?
+const createLogger = (!HAS_LOCAL_STORAGE ?
   function(name) {
     return new TeaLogger(name, WARN);
   } :
@@ -22,7 +24,7 @@ const createLogger = (typeof localStorage === "undefined" ?
     // Restore level from cache.
     let level = localStorage.getItem(key(name));
     if (level != null) {
-      level = Number(level);
+      try { level = levelOf(level); } catch (err) { /*ignore*/ }
     }
     if (!isLevel(level)) {
       level = WARN;
@@ -48,3 +50,17 @@ export function getByName(name) {
 export function getAll() {
   return Object.keys(loggers).map(name => loggers[name]);
 }
+
+export const clearStorage = (!HAS_LOCAL_STORAGE ?
+  function() {
+    // do nothing.
+  } :
+  function() {
+    for (let i = localStorage.length - 1; i >= 0; --i) {
+      let key = localStorage.key(i);
+      if (KEY_PATTERN.test(key)) {
+        localStorage.removeItem(key);
+      }
+    };
+  }
+);

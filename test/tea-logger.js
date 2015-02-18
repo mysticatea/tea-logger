@@ -5,9 +5,14 @@ import spies from "chai-spies";
 chai.use(spies);
 
 import polyfill from "babel/polyfill";
-import TeaLogger from "../lib/index";
+import TeaLogger from "../src/index";
 
 describe("TeaLogger", () => {
+  after(() => {
+    // Clearnup.
+    TeaLogger.clearStorage();
+  });
+
   it("should have getters.", () => {
     expect(TeaLogger.getByName).to.be.a("function");
     expect(TeaLogger.getAll).to.be.a("function");

@@ -18,6 +18,10 @@ class TeaLoggerLevel {
   toString() {
     return this[NAME];
   }
+
+  toJSON() {
+    return {name: this[NAME], value: this[VALUE]};
+  }
 }
 
 export const DEBUG = new TeaLoggerLevel(0, "debug");

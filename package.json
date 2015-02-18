@@ -1,6 +1,6 @@
 {
   "name": "tea-logger",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A logger for frontend.",
   "main": "lib/index.js",
   "files": [
@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "build": "babel src --out-dir lib --source-maps-inline",
+    "build-demo": "browserify demo/demo-src.js --transform babelify > demo/demo.js",
     "test": "karma start karma.conf.js --single-run",
     "testing": "karma start karma.conf.js --auto-watch"
   },
@@ -31,6 +32,7 @@
   "devDependencies": {
     "babel": "^4.0.2",
     "babelify": "^5.0.3",
+    "browserify": "^8.1.3",
     "chai": "^2.0.0",
     "chai-spies": "^0.5.1",
     "karma": "^0.12.31",
@@ -40,6 +42,5 @@
     "karma-ie-launcher": "^0.1.5",
     "karma-mocha": "^0.1.10",
     "mocha": "^2.1.0"
-  },
-  "private": true
+  }
 }

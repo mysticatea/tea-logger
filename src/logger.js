@@ -1,5 +1,5 @@
 "use strict";
-import {DEBUG, INFO, WARN, ERROR, isLevel} from "./levels";
+import {DEBUG, INFO, WARN, ERROR, isLevel, levelOf} from "./levels";
 import {isValidWriter} from "./writer";
 import consoleWriter from "./console-writer";
 
@@ -98,6 +98,9 @@ export default class TeaLogger {
   }
 
   set level(newLevel) {
+    if (typeof newLevel === "string") {
+      newLevel = levelOf(newLevel.toLowerCase());
+    }
     assertValidLevel(newLevel);
 
     const oldLevel = this[LEVEL];

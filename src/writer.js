@@ -1,4 +1,3 @@
-/* @copyright Toru Nagashima, 2015, under MIT License */
 "use strict";
 
 export function isValidWriter(x) {

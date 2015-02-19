@@ -8,7 +8,6 @@
   ],
   "scripts": {
     "build": "babel src --out-dir lib --source-maps-inline",
-    "build-demo": "browserify demo/demo-src.js --transform babelify > demo/demo.js",
     "test": "karma start karma.conf.js --single-run",
     "testing": "karma start karma.conf.js --auto-watch"
   },
@@ -30,7 +29,7 @@
   },
   "homepage": "https://github.com/mysticatea/tea-logger",
   "devDependencies": {
-    "babel": "^4.0.2",
+    "babel": "^4.3.0",
     "babelify": "^5.0.3",
     "browserify": "^8.1.3",
     "chai": "^2.0.0",

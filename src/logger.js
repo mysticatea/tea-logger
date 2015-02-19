@@ -1,4 +1,3 @@
-/* @copyright Toru Nagashima, 2015, under MIT License */
 "use strict";
 import {DEBUG, INFO, WARN, ERROR, isLevel} from "./levels";
 import {isValidWriter} from "./writer";

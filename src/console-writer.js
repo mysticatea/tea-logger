@@ -1,4 +1,3 @@
-/* @copyright Toru Nagashima, 2015, under MIT License */
 "use strict";
 
 const IS_IE = typeof navigator === "undefined" || /Trident|Edge/.test(navigator.userAgent);
